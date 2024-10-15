@@ -2,8 +2,7 @@
 layout: about
 title: about
 permalink: /about
-nav: true
-nav_order: 5
+
 subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
 
 profile:
