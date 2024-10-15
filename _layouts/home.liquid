@@ -1,0 +1,36 @@
+---
+    layout: default
+---
+
+<div class="hero-section" >
+    <div class="pt-28 pb-28 lg:pb-48 flex">
+        <div class="space-y-5 max-w-4xl mx-auto text-center text-gray-700">
+            <h1 class="text-9xl  font-bold mx-auto lg:text-8xl">
+                .Net Liverpool
+            </h1>
+            <p class="max-w-xl text-lg mx-auto">
+                by developers for developers.
+            </p>
+
+            <ul class="flex justify-center mt-4 space-x-4">
+                {% include social.liquid wrap_in_li=true %}
+            </ul>
+
+            <div class="flex items-center justify-center gap-x-5 font-medium">
+                <button
+                    onclick="Livewire.dispatch('openModal', { component: 'contact-us-modal' })"
+                    class="hover:bg-gray-700 hover:text-white py-2.5 px-4 text-center border rounded-lg border-gray-500"
+                >
+                   Get in touch
+                </button>
+                <a
+                    href="#"
+                    class="hover:bg-gray-700 hover:text-white py-2.5 px-4 text-center flex items-center rounded-lg border border-transparent"
+                >
+                    Sponsor
+                    {% include svg/arrow_up_right.liquid %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

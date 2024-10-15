@@ -35,6 +35,14 @@ table {
   }
 }
 
+a.social-link-hover {
+  color: var(--global-text-color);
+
+  &:hover {
+    color: var(--global-hover-color);
+  }
+}
+
 a,
 table.table a {
   color: var(--global-theme-color);
