@@ -17,20 +17,44 @@
             </ul>
 
             <div class="flex items-center justify-center gap-x-5 font-medium">
-                <button
-                    onclick="Livewire.dispatch('openModal', { component: 'contact-us-modal' })"
-                    class="hover:bg-gray-700 hover:text-white py-2.5 px-4 text-center border rounded-lg border-gray-500"
-                >
-                   Get in touch
-                </button>
-                <a
-                    href="#"
-                    class="hover:bg-gray-700 hover:text-white py-2.5 px-4 text-center flex items-center rounded-lg border border-transparent"
-                >
-                    Sponsor
-                    {% include svg/arrow_up_right.liquid %}
-                </a>
+                {% include button.liquid 
+                    data_toggle='modal' 
+                    data_target='#contactUsFormModal' 
+                    label='Get in touch' 
+                %}
+                {% include link_button.liquid 
+                    label='Sponsor'
+                    href='/sponsor'
+                    svg='arrow_up_right'
+                    dark=false
+                %}
             </div>
         </div>
     </div>
 </div>
+
+{% capture modal_form %}
+    <form>
+      <div class="form-group">
+        <input type="text" class="form-control" id="sender-email" placeholder="Email Address">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="sender-full-name" placeholder="Full Name">
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" id="sender-message-text" placeholder="Message..."></textarea>
+      </div>
+    </form>
+  {% endcapture %}
+
+{% include modal.liquid 
+        id='contactUsFormModal' 
+        aria_label='contactUsModal'
+        title='Send Message'
+        title_id='contactUsModalTitle'
+        content=modal_form
+        action_label='Send Email' 
+        action_function='sendContactEmail'
+%}
+
+{% include scripts/email.liquid %}

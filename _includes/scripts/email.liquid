@@ -1,0 +1,43 @@
+<script>
+  // Function to handle email form submission
+  async function sendContactEmail(emailId, fullNameId, messageId) {
+    // Get values using the passed IDs
+    const email = document.getElementById(emailId).value;
+    const fullName = document.getElementById(fullNameId).value;
+    const message = document.getElementById(messageId).value;
+
+    // Validation: Ensure all fields are filled out
+    if (!email || !fullName || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    // Prepare the email data to send
+    const emailData = {
+      subject: `Contact Email from Dotnet Liverpool from ${email}`,
+      body: `Full Name: ${fullName}\nEmail: ${email}\nMessage: ${message}`,
+    };
+
+    try {
+      // Send the email via POST request
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyowpt4PGSnbqh2I8sRUnA2d7QkWYv5imdNMZ6qqs14aX1AQ6ZwRYxV7h7XTBgZZV4QRg/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+      });
+
+      if (response.ok) {
+        alert('Email sent successfully!');
+        // Clear the form after submission
+        document.getElementById('contact-form').reset();
+      } else {
+        alert('Error sending email. Please try again later.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred while sending the email.');
+    }
+  }
+</script>

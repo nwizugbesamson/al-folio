@@ -1,0 +1,34 @@
+<button
+  {% if include.onclick %}
+    onclick="{{ include.onclick }}"
+  {% endif %}
+  class="py-2.5 px-4 text-center border rounded-lg border-gray-500
+
+  {% if include.style == 'dark' %}
+      bg-gray-700 text-white hover:bg-gray-500 
+    {% elsif include.style == 'red' %}
+      bg-red-600 text-white hover:bg-red-700
+    {% else %}
+      hover:bg-gray-700 hover:text-white 
+    {% endif %}"
+
+    {% if include.type %}
+        type="{{ include.type }}"
+    {% else %}
+        type="button" 
+    {% endif %}
+
+    {% if include.data_toggle %}
+        data-toggle="{{ include.data_toggle }}"
+    {% endif %}
+      
+    {% if include.data_target %}
+        data-target="{{ include.data_target }}"
+    {% endif %}
+
+    {% if include.data_dismiss %}
+        data-dismiss="{{ include.data_dismiss }}"
+    {% endif %}
+>
+  {{ include.label  }}
+</button>
