@@ -1,9 +1,10 @@
 <button
   {% if include.onclick %}
-    onclick="{{ include.onclick }}"
+    onclick={{ include.onclick }}
   {% endif %}
   class="py-2.5 px-4 text-center border rounded-lg border-gray-500
 
+  
   {% if include.style == 'dark' %}
       bg-gray-700 text-white hover:bg-gray-500 
     {% elsif include.style == 'red' %}
@@ -11,6 +12,11 @@
     {% else %}
       hover:bg-gray-700 hover:text-white 
     {% endif %}"
+
+  {% if include.id %}
+    id="{{ include.id }}"
+  {% endif %}
+
 
     {% if include.type %}
         type="{{ include.type }}"

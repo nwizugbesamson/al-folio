@@ -54,7 +54,7 @@
         title_id='contactUsModalTitle'
         content=modal_form
         action_label='Send Email' 
-        action_function='sendContactEmail'
+        action_function='sendContactEmail("sender-email","sender-full-name","sender-message-text")'
 %}
 
 {% include scripts/email.liquid %}
